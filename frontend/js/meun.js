@@ -1,0 +1,88 @@
+const menuContainer = document.getElementById("menu-container");// 這裡的 menuData 是從 menu.json 讀取的資料
+
+// 產生菜單
+function createMenu(){
+    menuData.forEach(category => {// 這裡的 category 是 menuData 中的每個物件
+        // 產生每個分類的 HTML
+        let categoryHTML =  `
+        <section class="category">
+            <h3>${category.category}</h3>
+        `;
+        category.items.forEach(food => {
+
+            if(food.available){
+                categoryHTML += `
+                <div class="food">
+                    <label>
+                        <input type="checkbox" class="food-check" data-name="${food}">
+                        ${food}
+                    </label>
+                    <div class="note"><textarea placeholder="輸入備註"></textarea></div>
+                </div>`;
+            }
+            else{// 這裡的 food 是 category.items 中的每個物件
+                categoryHTML += `
+                <div class="food disabled">${food.name}（今日停止供應）</div>`;
+            }
+        });
+        categoryHTML += "</section>";// 將產生的 HTML 加入到菜單容器中
+        menuContainer.innerHTML += categoryHTML;// 這裡的 menuContainer 是前面取得的 DOM 元素
+    });
+}
+
+createMenu();
+
+// 勾選顯示備註
+document.querySelectorAll(".food-check").forEach(check => {// 這裡的 check 是每個勾選框的 DOM 元素
+
+    check.addEventListener("change", function(){// 這裡的 this 是指被勾選的 checkbox
+
+        const note = this.closest(".food").querySelector(".note");// 這裡的 this 是指被勾選的 checkbox，closest(".food") 是找到最近的父元素 .food，querySelector(".note") 是找到備註的 div
+
+        if(this.checked){
+            note.style.display = "block";// 顯示備註
+        }else{
+            note.style.display = "none";
+            note.querySelector("textarea").value = "";// 清空備註
+        }
+    });
+});
+
+
+// 選擇餐別
+let selectedMeal = "";
+
+document.querySelectorAll(".meal-btn").forEach(button => {// 這裡的 button 是每個餐別按鈕的 DOM 元素
+
+    button.addEventListener("click", function(){// 這裡的 this 是指被點擊的按鈕
+
+        selectedMeal = this.innerText;//這裡的 this 是指被點擊的按鈕，innerText 是取得按鈕的文字內容
+
+        console.log("目前選擇:", selectedMeal);// 顯示目前選擇的餐別
+
+    });
+});
+
+
+// 送出訂單
+document.getElementById("submit-btn").addEventListener("click", () => {
+
+    let order = [];
+
+    document.querySelectorAll(".food-check").forEach(check => {
+
+        if(check.checked){
+            order.push({// 這裡的 check 是每個勾選框的 DOM 元素
+                meal: selectedMeal,
+                food: check.dataset.name,
+                note: check.closest(".food")
+                    .querySelector("textarea").value
+            });
+        }
+    });
+
+    console.log(order);// 顯示訂單內容
+
+    alert("訂單送出成功");// 顯示送出成功訊息
+
+});
