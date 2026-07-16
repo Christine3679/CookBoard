@@ -83,6 +83,10 @@ button:active{
     margin:10px 0;
     padding:15px;
     border-radius:15px;
+    transition:0.12s;
+}
+.food:active{
+    transform:scale(0.97);
 }
 
 .food label{
@@ -155,14 +159,20 @@ textarea{
 @media(max-width:600px){
     .meal-btn{
         flex:1;
-        min-width:70px;
+        min-width:80px;
         padding:12px 10px;
         font-size:15px;
+        min-height:48px;
     }
 }
-
 input[type="number"]{
-    border-radius:8px;
+    width:30px;
+    border-radius:12px;
     border:1px solid #ccc;
-
+    font-size:20px;
+}
+.addon-quantity{
+    display:none;
+    width:60px;
+    margin-left:10px;
 }

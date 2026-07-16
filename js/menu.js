@@ -33,15 +33,19 @@ function createMenu(){
                 `;
                 food.options.forEach(add=>{
                     html += `
-                    <label>
-                        <input 
-                        type="checkbox">
-                        ${add.name}
-                        <input 
+                    <div class="addon">
+                        <label>
+                            <input
+                            type="checkbox"
+                            class="addon-check">
+                            ${add.name}
+                        </label>
+                        <input
                         type="number"
                         value="1"
-                        min="1">
-                    </label>
+                        min="1"
+                        class="addon-quantity">
+                    </div>
                     `;
                 });
             }
@@ -75,7 +79,22 @@ document.querySelectorAll(".food-check").forEach(check => {// 這裡的 check �
         }
     });
 });
+// 勾選加點顯示數量
+document.querySelectorAll(".addon-check")
+.forEach(check=>{
 
+    check.addEventListener("change",function(){
+
+        const quantity = this.closest(".addon").querySelector(".addon-quantity");
+        
+        if(this.checked){
+            quantity.style.display="inline-block";
+        }else{
+            quantity.style.display="none";
+            quantity.value=1;
+        }
+    });
+});
 
 // 選擇餐別
 let selectedMeal = "";
