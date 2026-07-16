@@ -14,10 +14,10 @@ function createMenu(){
                 categoryHTML += `
                 <div class="food">
                     <label>
-                        <input type="checkbox" class="food-check" data-name="${food}">
-                        ${food}
+                        <input type="checkbox" class="food-check" data-name="${food.name}">
+                        ${food.name}
                     </label>
-                    <div class="note"><textarea placeholder="輸入備註"></textarea></div>
+                    <div class="note"> <textarea placeholder="輸入備註"> </textarea></div>
                 </div>`;
             }
             else{// 這裡的 food 是 category.items 中的每個物件
@@ -39,10 +39,10 @@ document.querySelectorAll(".food-check").forEach(check => {// 這裡的 check �
 
         const note = this.closest(".food").querySelector(".note");// 這裡的 this 是指被勾選的 checkbox，closest(".food") 是找到最近的父元素 .food，querySelector(".note") 是找到備註的 div
 
-        if(this.checked){
+        if(this.checked){// 這裡的 this 是指被勾選的 checkbox
             note.style.display = "block";// 顯示備註
         }else{
-            note.style.display = "none";
+            note.style.display = "none";// 隱藏備註
             note.querySelector("textarea").value = "";// 清空備註
         }
     });

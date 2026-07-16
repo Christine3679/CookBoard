@@ -23,6 +23,16 @@ h2{
     margin-top:20px;
 }
 
+button{
+    -webkit-tap-highlight-color:transparent;
+    transition:0.15s;
+}
+
+button:active{
+    transform:scale(0.95);
+    filter:brightness(0.85);
+}
+
 /* 餐別按鈕 */
 
 #meal-select{
@@ -110,6 +120,7 @@ h2{
 
 #submit-btn:hover{
     opacity:0.8;
+
 }
 
 /* 手機優先 */
