@@ -2,39 +2,34 @@ const menuData = [
 
 {
     category:"飯類",
-
     items:[
-
         {
             name:"白飯",
             available:true,
             quantity:true
         },
-
         {
             name:"粥",
             available:true,
             quantity:true
+        },
+        {
+            name:"稀飯",
+            available:true,
+            quantity:true
         }
-
     ]
 },
 
 
 {
     category:"麵類",
-
     items:[
-
         {
             name:"番茄義大利麵（直麵、無湯有醬）",
-
             available:true,
-
             quantity:true,
-
             options:[
-
                 {
                     name:"雞胸肉",
                     available:true,
@@ -61,6 +56,98 @@ const menuData = [
 
             ]
         },
+        {
+            name:"番茄刀削麵（寬麵）",
+            available:true,
+            quantity:true
+        }, 
+        {
+            name:"蔬菜湯麵",
+            available:true,
+            quantity:true
+        }, 
+        {
+            name:"肉燥乾麵",
+            available:true,
+            quantity:true
+        }
+        , 
+        {
+            name:"蝦子麵",
+            available:true,
+            quantity:true
+        }
+        , 
+        {
+            name:"來一客泡麵",
+            available:true,
+            quantity:true, 
+            options:[
+                {
+                    name:"整顆的蛋",
+                    available:true,
+                    quantity:true
+                },
+
+                {
+                    name:"蛋花",
+                    available:true,
+                },
+
+                {
+                    name:"青菜",
+                    available:true,
+                },
+
+                {
+                    name:"蝦子",
+                    available:true,
+                    quantity:true
+                }
+
+            ]
+        }
+        , 
+        {
+            name:"一蘭泡麵",
+            available:true,
+            quantity:true, 
+            options:[
+                {
+                    name:"整顆的蛋",
+                    available:true,
+                    quantity:true
+                },
+
+                {
+                    name:"蛋花",
+                    available:true,
+                },
+
+                {
+                    name:"青菜",
+                    available:true,
+                },
+
+                {
+                    name:"蝦子",
+                    available:true,
+                    quantity:true
+                }
+
+            ]
+        }
+        , 
+
+
+
+
+
+
+
+
+
+
 
 
         {
@@ -70,6 +157,15 @@ const menuData = [
 
             quantity:true
         }
+        , 
+        {
+            name:"肉燥乾麵",
+
+            available:true,
+
+            quantity:true
+        }
+
 
     ]
 }
